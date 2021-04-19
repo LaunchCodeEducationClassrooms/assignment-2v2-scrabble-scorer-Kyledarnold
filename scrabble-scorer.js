@@ -102,11 +102,23 @@ function scorerPrompt() {
   return scoreIndex;
 }
 
-function transform() {};
+function transform(oldPointStructure) {
+  let newPointStructure = {};
+  for (var key in oldPointStructure){
+    chars = oldPointStructure[key];
+    for (var c in chars){
+      char = chars[c];
+      console.log(`Yo. I'm on key ${key} and I'm going to assign ${char} the point value ${key}`);
+      newPointStructure[char] = key;
+    }
+  }
+  return newPointStructure;
+};
 
-let newPointStructure;
+let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
+  
   let scoreIndex = scorerPrompt();
   ///console.log(scorerPrompt());
    word = initialPrompt();
